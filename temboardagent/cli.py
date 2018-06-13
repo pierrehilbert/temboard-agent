@@ -12,7 +12,7 @@ except ImportError:
         logger.warn("Restart temboard-agent if you it can't find new plugins.")
 
 from .postgres import Postgres
-from .toolkit.app import BaseApplication, StoreDefinedAction
+from .toolkit.app import BaseApplication
 from .toolkit.app import define_core_arguments as define_toolkit_arguments
 from .toolkit.configuration import OptionSpec
 from .toolkit import validators as v
@@ -37,6 +37,7 @@ class Application(BaseApplication):
 
     PROGRAM = "temboard-agent"
     VERSION = __version__
+    REPORT_URL = "https://github.com/dalibo/temboard-agent"
 
     DEFAULT_CONFIGFILE = '/etc/temboard-agent/temboard-agent.conf'
     DEFAULT_PLUGINS = [
